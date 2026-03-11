@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://halftimegoall.disqus.com https://c.disquscdn.com; style-src 'self' 'unsafe-inline' https://c.disquscdn.com; img-src 'self' data: https://c.disquscdn.com https://referrer.disqus.com; connect-src 'self' https://formspree.io; frame-src https://googleads.g.doubleclick.net https://disqus.com;">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  
   <meta name="google-adsense-account" content="ca-pub-1677053107217470">
   <meta name="description" content="전문적인 로또 번호 추첨 및 데이터 분석 포털입니다. 보너스 번호 포함 추첨 기능과 최신 당첨 통계를 확인하세요.">
   <meta name="keywords" content="로또번호추첨기, 로또분석, 로또통계, 동행복권, 로또당첨번호조회">
@@ -75,6 +79,9 @@
           <h2>Premium Partnership</h2>
           <p class="form-desc">비즈니스 제휴 및 광고 문의를 남겨주시면 담당자가 신속히 연락드립니다.</p>
           <form action="https://formspree.io/f/xgonkerq" method="POST">
+            <!-- Honeypot 스팸 방지 필드 -->
+            <input type="text" name="_gotcha" style="display:none">
+            
             <div class="form-row">
               <div class="form-group">
                 <label for="name">성함 / 기업명</label>
