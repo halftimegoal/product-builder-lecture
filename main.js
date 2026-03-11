@@ -97,18 +97,51 @@ if (calcButton) {
 const fortuneButton = document.querySelector("#fortune-button");
 const luckScoreDisplay = document.querySelector("#luck-score");
 const luckMessageDisplay = document.querySelector("#luck-message");
-const luckMessages = [
-  "오늘은 최고의 날! 로또 한 장 어떠세요?",
-  "운이 따르는 날입니다. 자신감을 가지세요.",
-  "평범하지만 평화로운 하루가 될 거예요.",
-  "조심해서 나쁠 것 없는 날, 신중함이 필요해요.",
-  "작은 행운이 숨어있는 날입니다. 주변을 잘 살펴보세요."
-];
+
+function createConfetti() {
+  for (let i = 0; i < 50; i++) {
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor = ["#fbc400", "#69c8f2", "#ff7272", "#b0d840"][Math.floor(Math.random() * 4)];
+    confetti.style.animationDelay = Math.random() * 2 + "s";
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 3000);
+  }
+}
 
 if (fortuneButton) {
   fortuneButton.addEventListener("click", () => {
-    const score = Math.floor(Math.random() * 51) + 50; // 50~100점
+    // 확률 테스트를 위해 10% 확률로 100점 등장, 나머지는 1~99점
+    let score;
+    const rand = Math.random();
+    if (rand > 0.9) {
+      score = 100;
+    } else {
+      score = Math.floor(Math.random() * 99) + 1;
+    }
+
     luckScoreDisplay.textContent = `${score}%`;
-    luckMessageDisplay.textContent = luckMessages[Math.floor(Math.random() * luckMessages.length)];
+    
+    // 클래스 초기화
+    luckScoreDisplay.classList.remove("score-low", "score-mid", "score-high", "score-max");
+    
+    let message = "";
+    if (score <= 30) {
+      luckScoreDisplay.classList.add("score-low");
+      message = "조심해서 나쁠 것 없는 날, 신중함이 필요해요.";
+    } else if (score <= 60) {
+      luckScoreDisplay.classList.add("score-mid");
+      message = "평범하지만 평화로운 하루가 될 거예요.";
+    } else if (score <= 99) {
+      luckScoreDisplay.classList.add("score-high");
+      message = "운이 따르는 날입니다. 자신감을 가지세요!";
+    } else {
+      luckScoreDisplay.classList.add("score-max");
+      message = "축하합니다! 역대급 행운의 날입니다! 지금 바로 도전하세요!";
+      createConfetti();
+    }
+    
+    luckMessageDisplay.textContent = message;
   });
 }

@@ -178,5 +178,39 @@ section.card {
 .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
 @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
 
+/* Fortune Score Colors */
+.score-low { color: #aaaaaa !important; }    /* 1-30% */
+.score-mid { color: #69c8f2 !important; }    /* 31-60% */
+.score-high { color: #b0d840 !important; }   /* 61-99% */
+.score-max { 
+  color: #fbc400 !important; 
+  text-shadow: 0 0 20px rgba(251, 196, 0, 0.5);
+  animation: celebrate 0.5s infinite alternate;
+}
+
+@keyframes celebrate {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+
+/* Confetti Effect */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #fbc400;
+  top: -10px;
+  border-radius: 2px;
+  animation: fall 3s linear forwards;
+  z-index: 100;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(500px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
 footer { background: var(--primary-color); color: white; padding: 60px 20px; margin-top: 100px; text-align: center; }
 .theme-toggle { cursor: pointer; padding: 8px 16px; border: 1px solid var(--border-color); border-radius: 8px; background: none; color: inherit; }
