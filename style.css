@@ -7,6 +7,7 @@
   --bg-light: #ffffff;
   --bg-gray: #f8f9fa;
   --border-color: #dadce0;
+  --premium-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 [data-theme="dark"] {
@@ -18,6 +19,7 @@
   --bg-light: #202124;
   --bg-gray: #303134;
   --border-color: #3c4043;
+  --premium-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 body {
@@ -90,82 +92,188 @@ header.hero {
   .grid { grid-template-columns: 1fr; }
 }
 
-/* Components */
+/* Generator Styling */
 section.card {
   background: var(--bg-light);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 30px;
   margin-bottom: 30px;
 }
 
 .generator-box {
   text-align: center;
-  padding: 40px;
+  padding: 50px 30px;
   background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
   color: white;
-  border-radius: 12px;
+  border-radius: 16px;
+  box-shadow: var(--premium-shadow);
 }
 
 .lotto-numbers {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin: 30px 0;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0;
   flex-wrap: wrap;
 }
 
 .lotto-number {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   background: white;
   color: #1a73e8;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.lotto-number.bonus {
+  background: #fbbc04;
+  color: #202124;
+}
+
+.plus-sign {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin: 0 5px;
 }
 
 .btn-primary {
   background-color: var(--accent-color);
   color: #202124;
   border: none;
-  padding: 15px 40px;
-  font-size: 1.2rem;
+  padding: 18px 50px;
+  font-size: 1.25rem;
   font-weight: bold;
-  border-radius: 30px;
+  border-radius: 40px;
   cursor: pointer;
+  box-shadow: 0 4px 15px rgba(251, 188, 4, 0.4);
+  transition: all 0.2s;
 }
 
-/* Typography */
-h2 {
-  font-size: 1.8rem;
-  border-left: 5px solid var(--secondary-color);
-  padding-left: 15px;
-  margin-bottom: 25px;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(251, 188, 4, 0.6);
 }
 
-p {
-  margin-bottom: 20px;
-  text-align: justify;
+/* Premium Contact Form */
+.premium-form-section {
+  background-color: var(--bg-gray);
+  border: 2px solid var(--secondary-color);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
 }
 
-.stats-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+.premium-form-section::before {
+  content: "PARTNERSHIP";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 4rem;
+  font-weight: 900;
+  opacity: 0.03;
+  pointer-events: none;
 }
 
-.stats-table th, .stats-table td {
-  border: 1px solid var(--border-color);
-  padding: 12px;
+.premium-form-section h2 {
+  font-size: 2.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+  border-left: none;
+  padding-left: 0;
   text-align: center;
 }
 
-.stats-table th {
-  background-color: var(--bg-gray);
+.premium-form-section p.form-desc {
+  text-align: center;
+  color: var(--text-sub);
+  margin-bottom: 40px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+}
+
+.btn-submit {
+  width: 100%;
+  background: var(--secondary-color);
+  color: white;
+  padding: 18px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: opacity 0.2s;
+}
+
+.btn-submit:hover {
+  opacity: 0.9;
+}
+
+/* Links & Typography */
+.external-link-card {
+  background: #e3f2fd;
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.external-link-card a {
+  color: #0d47a1;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.external-link-card a:hover {
+  text-decoration: underline;
 }
 
 footer {
@@ -177,9 +285,10 @@ footer {
 
 .theme-toggle {
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 8px 16px;
   border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: 8px;
   background: none;
   color: inherit;
+  font-weight: 500;
 }

@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-adsense-account" content="ca-pub-1677053107217470">
-  <meta name="description" content="전문적인 로또 번호 추첨 및 데이터 분석 포털입니다. 최신 당첨 통계와 가이드를 확인하고 스마트하게 행운의 번호를 추출하세요.">
-  <meta name="keywords" content="로또번호추첨기, 로또분석, 로또통계, 로또1등비결, 로또당첨금세금">
+  <meta name="description" content="전문적인 로또 번호 추첨 및 데이터 분석 포털입니다. 보너스 번호 포함 추첨 기능과 최신 당첨 통계를 확인하세요.">
+  <meta name="keywords" content="로또번호추첨기, 로또분석, 로또통계, 동행복권, 로또당첨번호조회">
   <title>로또 정보 포털 - 스마트한 번호 추첨 및 당첨 분석</title>
   <link href='./style.css' rel='stylesheet'>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677053107217470" crossorigin="anonymous"></script>
@@ -33,7 +33,7 @@
       <div class="content-area">
         <!-- 추첨기 도구 영역 -->
         <section class="generator-box">
-          <h2>번호 자동 생성기</h2>
+          <h2>번호 자동 생성기 (보너스 포함)</h2>
           <div class="lotto-numbers">
             <div class="lotto-number">?</div>
             <div class="lotto-number">?</div>
@@ -41,8 +41,17 @@
             <div class="lotto-number">?</div>
             <div class="lotto-number">?</div>
             <div class="lotto-number">?</div>
+            <div class="plus-sign">+</div>
+            <div class="lotto-number bonus">?</div>
           </div>
-          <button id="draw-button" class="btn-primary">번호 추출하기</button>
+          <button id="draw-button" class="btn-primary">행운의 번호 추출하기</button>
+        </section>
+
+        <!-- 공식 결과 링크 카드 -->
+        <section class="external-link-card" style="margin-bottom: 30px;">
+          <a href="https://www.dhlottery.co.kr/lt645/result" target="_blank" rel="noopener noreferrer">
+            🔍 동행복권 공식 홈페이지에서 이전 회차 당첨 번호 확인하기 →
+          </a>
         </section>
 
         <section class="card">
@@ -51,38 +60,35 @@
           <p>저희 포털에서 제공하는 번호 생성 시스템은 이러한 최신 트렌드를 반영하여 사용자에게 가장 가능성 높은 조합을 추천하기 위해 노력하고 있습니다. 하지만 로또는 기본적으로 독립 확률 게임임을 잊지 마시고, 즐거움의 목적으로만 이용해 주시기 바랍니다.</p>
         </section>
 
-        <section class="card">
-          <h2>로또 당첨을 위한 3가지 전략</h2>
-          <article>
-            <h3>1. 고정수 전략 활용</h3>
-            <p>자신이 특별하게 생각하는 숫자(생일, 기념일 등)를 하나 이상 포함시키는 방법입니다. 통계적으로 모든 숫자의 확률은 같으나, 본인만의 의미 있는 숫자를 포함시킴으로써 게임의 재미를 높일 수 있습니다.</p>
-          </article>
-          <article>
-            <h3>2. 제외수 필터링</h3>
-            <p>직전 회차에 나왔던 번호가 바로 다음 회차에 연속으로 나올 확률은 상대적으로 낮습니다. 최근 당첨 번호 중 일부를 제외하고 번호를 생성하는 방식을 적용해 보세요.</p>
-          </article>
-          <article>
-            <h3>3. 소수와 합성수의 균형</h3>
-            <p>1, 2, 3, 5, 7 등 소수(Prime Number)와 나머지 합성수들의 비중을 적절히 섞는 것이 좋습니다. 역사적 데이터를 보면 소수가 2~3개 포함된 조합이 가장 빈번하게 당첨되었습니다.</p>
-          </article>
-        </section>
-
-        <section class="contact-form">
-          <h2>제휴 및 서비스 문의</h2>
+        <!-- 프리미엄 제휴 문의 섹션 -->
+        <section class="premium-form-section">
+          <h2>Premium Partnership</h2>
+          <p class="form-desc">비즈니스 제휴 및 광고 문의를 남겨주시면 담당자가 신속히 연락드립니다.</p>
           <form action="https://formspree.io/f/xgonkerq" method="POST">
-            <div class="form-group">
-              <label for="name">이름/회사명</label>
-              <input type="text" id="name" name="name" required placeholder="홍길동">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">성함 / 기업명</label>
+                <input type="text" id="name" name="name" required placeholder="예: 홍길동">
+              </div>
+              <div class="form-group">
+                <label for="email">연락처 (이메일)</label>
+                <input type="email" id="email" name="_replyto" required placeholder="example@domain.com">
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label for="category">문의 카테고리</label>
+              <select id="category" name="category">
+                <option value="partnership">비즈니스 제휴 제안</option>
+                <option value="advertisement">광고 게재 문의</option>
+                <option value="api">데이터 API 이용 문의</option>
+                <option value="other">기타 문의</option>
+              </select>
             </div>
             <div class="form-group">
-              <label for="email">이메일 주소</label>
-              <input type="email" id="email" name="_replyto" required placeholder="example@email.com">
+              <label for="message">문의 상세 내용</label>
+              <textarea id="message" name="message" rows="6" required placeholder="문의하실 내용을 상세히 적어주세요."></textarea>
             </div>
-            <div class="form-group">
-              <label for="message">문의 내용</label>
-              <textarea id="message" name="message" rows="5" required placeholder="상세 내용을 입력하세요."></textarea>
-            </div>
-            <button type="submit" class="btn-primary" style="width: 100%;">문의하기</button>
+            <button type="submit" class="btn-submit">문의 신청하기</button>
           </form>
         </section>
       </div>
