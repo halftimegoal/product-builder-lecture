@@ -26,10 +26,10 @@ function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute("data-theme");
   if (currentTheme === "dark") {
     document.documentElement.setAttribute("data-theme", "light");
-    themeButton.textContent = "🌙 Dark Mode";
+    themeButton.textContent = "🌙 다크 모드";
   } else {
     document.documentElement.setAttribute("data-theme", "dark");
-    themeButton.textContent = "☀️ Light Mode";
+    themeButton.textContent = "☀️ 라이트 모드";
   }
 }
 
