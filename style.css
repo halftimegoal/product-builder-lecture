@@ -150,9 +150,31 @@ footer {
   font-size: 0.9rem;
 }
 
-.footer-content {
-  max-width: 800px;
-  margin: 0 auto;
+.footer-nav {
+  margin-bottom: 20px;
+}
+
+.footer-nav a {
+  color: var(--footer-text);
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
 }
 
 .theme-toggle {
