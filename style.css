@@ -31,7 +31,7 @@ body {
   transition: all 0.3s;
 }
 
-/* Navigation */
+/* Navigation & Logo */
 nav {
   background-color: var(--bg-light);
   border-bottom: 1px solid var(--border-color);
@@ -39,18 +39,45 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  display: space-between;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px;
+  height: 70px;
 }
 
 .nav-logo {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
+  font-weight: 900;
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+}
+
+.logo-icon {
+  display: flex;
+  gap: 4px;
+}
+
+.logo-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dot-1 { background-color: #fbc400; } /* 1-10 */
+.dot-2 { background-color: #69c8f2; } /* 11-20 */
+.dot-3 { background-color: #ff7272; } /* 21-30 */
+.dot-4 { background-color: #aaaaaa; } /* 31-40 */
+.dot-5 { background-color: #b0d840; } /* 41-45 */
+
+.nav-logo-text {
+  color: var(--secondary-color);
+  background: linear-gradient(135deg, var(--secondary-color), #0d47a1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .nav-links a {
