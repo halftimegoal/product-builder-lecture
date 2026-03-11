@@ -2,12 +2,23 @@ const lottoNumbers = document.querySelector(".lotto-numbers");
 const drawButton = document.querySelector("#draw-button");
 const themeButton = document.querySelector("#theme-button");
 
+function getBallColorClass(number) {
+  if (number <= 10) return "ball-yellow";
+  if (number <= 20) return "ball-blue";
+  if (number <= 30) return "ball-red";
+  if (number <= 40) return "ball-gray";
+  return "ball-green";
+}
+
 function paintNumber(number, isBonus = false) {
   const lottoNumber = document.createElement("div");
   lottoNumber.classList.add("lotto-number");
+  lottoNumber.classList.add(getBallColorClass(number));
+  
   if (isBonus) {
     lottoNumber.classList.add("bonus");
   }
+  
   lottoNumber.textContent = number;
   lottoNumbers.appendChild(lottoNumber);
 }
@@ -16,7 +27,6 @@ function paintNumbers() {
   lottoNumbers.innerHTML = "";
   const numbers = [];
   
-  // 1부터 45까지 중복 없이 7개 추출 (6개 당첨번호 + 1개 보너스)
   while (numbers.length < 7) {
     const number = Math.floor(Math.random() * 45) + 1;
     if (!numbers.includes(number)) {
@@ -24,19 +34,16 @@ function paintNumbers() {
     }
   }
 
-  // 앞의 6개 번호는 정렬하여 출력
   const mainNumbers = numbers.slice(0, 6).sort((a, b) => a - b);
   const bonusNumber = numbers[6];
 
   mainNumbers.forEach(num => paintNumber(num));
   
-  // 보너스 번호 구분을 위한 '+' 기호 추가
   const plusSign = document.createElement("div");
   plusSign.classList.add("plus-sign");
   plusSign.textContent = "+";
   lottoNumbers.appendChild(plusSign);
   
-  // 보너스 번호 출력
   paintNumber(bonusNumber, true);
 }
 

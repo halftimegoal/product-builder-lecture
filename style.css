@@ -39,6 +39,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: space-between;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,37 +60,11 @@ nav {
   font-weight: 500;
 }
 
-.nav-links a:hover {
-  color: var(--secondary-color);
-}
-
 /* Header */
 header.hero {
   text-align: center;
   padding: 80px 20px;
   background-color: var(--bg-gray);
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-/* Layout */
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 30px;
-}
-
-@media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; }
 }
 
 /* Generator Styling */
@@ -104,7 +79,7 @@ section.card {
 .generator-box {
   text-align: center;
   padding: 50px 30px;
-  background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
   color: white;
   border-radius: 16px;
   box-shadow: var(--premium-shadow);
@@ -123,19 +98,25 @@ section.card {
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background: white;
-  color: #1a73e8;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: inset -4px -4px 8px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.1);
 }
 
+/* Ball Colors (DHLottery Standard) */
+.ball-yellow { background-color: #fbc400; color: #fff; }
+.ball-blue { background-color: #69c8f2; color: #fff; }
+.ball-red { background-color: #ff7272; color: #fff; }
+.ball-gray { background-color: #aaaaaa; color: #fff; }
+.ball-green { background-color: #b0d840; color: #fff; }
+
 .lotto-number.bonus {
-  background: #fbbc04;
-  color: #202124;
+  border: 3px solid #fff;
 }
 
 .plus-sign {
@@ -158,137 +139,17 @@ section.card {
   transition: all 0.2s;
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(251, 188, 4, 0.6);
-}
-
 /* Premium Contact Form */
 .premium-form-section {
   background-color: var(--bg-gray);
   border: 2px solid var(--secondary-color);
   border-radius: 20px;
   padding: 40px;
-  position: relative;
-  overflow: hidden;
 }
 
-.premium-form-section::before {
-  content: "PARTNERSHIP";
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  font-size: 4rem;
-  font-weight: 900;
-  opacity: 0.03;
-  pointer-events: none;
-}
+.container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+.grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
 
-.premium-form-section h2 {
-  font-size: 2.2rem;
-  color: var(--secondary-color);
-  margin-bottom: 10px;
-  border-left: none;
-  padding-left: 0;
-  text-align: center;
-}
-
-.premium-form-section p.form-desc {
-  text-align: center;
-  color: var(--text-sub);
-  margin-bottom: 40px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 600px) {
-  .form-row { grid-template-columns: 1fr; }
-}
-
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 8px;
-  font-size: 0.95rem;
-}
-
-.form-group input, .form-group select, .form-group textarea {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  background-color: var(--bg-light);
-  color: var(--text-main);
-  box-sizing: border-box;
-  font-size: 1rem;
-  transition: border-color 0.2s;
-}
-
-.form-group input:focus, .form-group textarea:focus {
-  border-color: var(--secondary-color);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
-}
-
-.btn-submit {
-  width: 100%;
-  background: var(--secondary-color);
-  color: white;
-  padding: 18px;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: opacity 0.2s;
-}
-
-.btn-submit:hover {
-  opacity: 0.9;
-}
-
-/* Links & Typography */
-.external-link-card {
-  background: #e3f2fd;
-  border: none;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-}
-
-.external-link-card a {
-  color: #0d47a1;
-  text-decoration: none;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.external-link-card a:hover {
-  text-decoration: underline;
-}
-
-footer {
-  background: var(--primary-color);
-  color: white;
-  padding: 60px 20px;
-  margin-top: 100px;
-}
-
-.theme-toggle {
-  cursor: pointer;
-  padding: 8px 16px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background: none;
-  color: inherit;
-  font-weight: 500;
-}
+footer { background: var(--primary-color); color: white; padding: 60px 20px; margin-top: 100px; text-align: center; }
+.theme-toggle { cursor: pointer; padding: 8px 16px; border: 1px solid var(--border-color); border-radius: 8px; background: none; color: inherit; }
